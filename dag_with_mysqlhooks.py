@@ -48,7 +48,7 @@ with DAG(
 ) as dag:
      task1= PythonOperator(
         task_id="mysql_to_s3",
-        python_callable=postgres_to_s3
+        python_callable=mysql_to_s3
      )
      task1
 
