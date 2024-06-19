@@ -44,7 +44,9 @@ with DAG(
     dag_id="dag_with_mysql_hooks_v0xx",
     default_args=default_args,
     start_date=datetime(2024,6,17),
-    schedule_interval='@daily'
+    schedule_interval='@daily', #to schedule a DAG
+    schedule_interval='0 3 * * *' #runs at 3AM, 30 15 * * *=3:30PM
+
 ) as dag:
      task1= PythonOperator(
         task_id="mysql_to_s3",
