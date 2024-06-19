@@ -26,7 +26,10 @@ def mysql_to_s3():
     hook=MySqlHook(mysql_conn_id="mysql_localhost")
     df=hook.get_pandas_df("select student_code, honors_subject, percentage_of_mark from STUDENT;")
     table = pa.Table.from_pandas(df)
+    #snappy is by default compression so no need to specify else for GZIP or brotli:
+    #pq.write_table(table, 'file_name.parquet', compression='GZIP')
     pq.write_table(table, 'STUDENTS.parquet')
+
     #step2:upload textfile to s3
     dir=os.getcwd()
     s3_hook=S3Hook(aws_conn_id="<AwsBaseHook.default_conn_name>")

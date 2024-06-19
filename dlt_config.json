@@ -1,0 +1,30 @@
+{
+    "pipelines": [
+        {
+            "name": "s3_to_databricks_pipeline",
+            "configuration": {
+                "source": "dlt_pipeline.py"
+            },
+            "clusters": [
+                {
+                    "label": "default",
+                    "autoscale": {
+                        "min_workers": 1,
+                        "max_workers": 5
+                    }
+                }
+            ],
+            "libraries": [
+                {
+                    "pypi": {
+                        "package": "pandas"
+                    }
+                }
+            ],
+            "storage": "/mnt/dlt-pipeline-storage",
+            "target": "default",
+            "continuous": false,
+            "development": true
+        }
+    ]
+}
