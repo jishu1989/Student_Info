@@ -11,8 +11,8 @@ Consider that the following table exists in the MySQL students_info
 database.
 STUDENTS(student_code, first_name, last_name, email, phone_no,
 date_of_birth, honors_subject, percentage_of_marks);
-            Allowed attributes: student_code, honors_subject, percentage_of_marks
-            Blocked attributes: first_name, last_name, email, phone_no, date_of_birth
+Allowed attributes: student_code, honors_subject, percentage_of_marks
+Blocked attributes: first_name, last_name, email, phone_no, date_of_birth
          
 #### AWS S3 bucket
 Bucket name: assignment-eu-central-1
